@@ -1,0 +1,12 @@
+name: New Upstream
+
+on:
+  repository_dispatch: 
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get new upstream release
+      run: |
+        echo "::notice title=Upstream Release::New version of upstream released: ${{ github.event.client_payload.version }}"
